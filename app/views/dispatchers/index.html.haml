@@ -1,0 +1,15 @@
+.container
+  %h1 Dispatcher
+  - if @dispatchers.any?
+    %ul
+      - @dispatchers.each do |dispatcher|
+        %li
+          = link_to dispatcher.name, dispatcher_path(dispatcher)
+          = link_to 'Edit', edit_dispatcher_path(dispatcher)
+          = link_to 'Delete', dispatcher_path(dispatcher), method: :delete
+
+        %hr
+  - else
+    %h3
+      There are no Dispatches, go ahead and Add One!
+  = link_to 'Add a new Dispatcher', new_dispatcher_path, class: 'btn-flat hoverable grey'
